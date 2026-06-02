@@ -8,35 +8,35 @@ $address = 'Тенистая ул., 29, микрорайон Западный, �
 $hours = 'ежедневно 10:00-18:00';
 
 $carCatalog = [
-    'Lada' => ['Granta', 'Vesta', 'Niva', 'Largus', 'Priora', 'Kalina'],
-    'ВАЗ' => ['2107', '2114', '2110'],
-    'Hyundai' => ['Solaris', 'Creta', 'Tucson', 'Santa Fe'],
-    'Kia' => ['Rio', 'Ceed', 'Sportage', 'Sorento', 'Cerato'],
-    'Toyota' => ['Camry', 'Corolla', 'RAV4', 'Land Cruiser', 'Land Cruiser Prado'],
-    'Volkswagen' => ['Polo', 'Tiguan', 'Passat', 'Touareg'],
-    'Renault' => ['Logan', 'Duster', 'Sandero', 'Kaptur', 'Arkana', 'Trafic'],
-    'Skoda' => ['Octavia', 'Rapid', 'Kodiaq'],
-    'Nissan' => ['Qashqai', 'X-Trail', 'Almera'],
-    'Ford' => ['Focus', 'Mondeo', 'Kuga', 'Transit'],
-    'Chevrolet' => ['Niva', 'Cruze', 'Lacetti'],
-    'Mitsubishi' => ['Outlander', 'Pajero', 'Lancer'],
-    'Mazda' => ['3', '6', 'CX-5'],
-    'Mercedes-Benz' => ['C-Class', 'E-Class', 'Sprinter', 'Vito'],
-    'BMW' => ['3 Series', '5 Series', 'X3', 'X5'],
-    'Audi' => ['A4', 'A6', 'Q5', 'Q7'],
-    'Peugeot' => ['308', '408', '607'],
-    'Citroen' => ['C4', 'Berlingo'],
-    'Opel' => ['Astra', 'Zafira'],
-    'Honda' => ['Civic', 'Accord', 'CR-V'],
-    'Geely' => ['Coolray', 'Atlas', 'Monjaro'],
-    'Chery' => ['Tiggo 4', 'Tiggo 7 Pro', 'Tiggo 8 Pro'],
-    'Haval' => ['Jolion', 'F7', 'Dargo'],
-    'Changan' => ['CS35 Plus', 'CS55 Plus', 'Uni-K'],
-    'Omoda' => ['C5'],
-    'Exeed' => ['TXL', 'VX'],
-    'Москвич' => ['3'],
-    'УАЗ' => ['Патриот', 'Хантер'],
-    'ГАЗ' => ['Газель', 'Соболь', 'ГАЗель Next'],
+    'Lada' => ['1111 Ока', '2104', '2105', '2107', 'Granta', 'Vesta', 'XRAY', 'Niva', 'Niva Travel', 'Largus', 'Priora', 'Kalina', 'Samara', '2110', '2111', '2112'],
+    'ВАЗ' => ['2101', '2102', '2103', '2104', '2105', '2106', '2107', '2108', '2109', '21099', '2110', '2111', '2112', '2113', '2114', '2115', '2121 Нива', '2131 Нива', 'Ока'],
+    'Hyundai' => ['Accent', 'Avante', 'Creta', 'Elantra', 'Equus', 'Genesis', 'Getz', 'Grand Starex', 'H-1', 'i20', 'i30', 'i40', 'ix35', 'Kona', 'Matrix', 'Palisade', 'Santa Fe', 'Solaris', 'Sonata', 'Staria', 'Terracan', 'Trajet', 'Tucson', 'Veloster', 'Veracruz'],
+    'Kia' => ['Carens', 'Carnival', 'Ceed', 'Cerato', 'K5', 'K7', 'Magentis', 'Mohave', 'Opirus', 'Optima', 'Picanto', 'Quoris', 'Rio', 'Seltos', 'Sorento', 'Soul', 'Spectra', 'Sportage', 'Stinger', 'Venga'],
+    'Toyota' => ['4Runner', 'Alphard', 'Auris', 'Avensis', 'Camry', 'Carina', 'Celica', 'Corolla', 'Crown', 'Fortuner', 'Highlander', 'Hilux', 'Land Cruiser', 'Land Cruiser Prado', 'Mark II', 'Prius', 'RAV4', 'Sequoia', 'Sienna', 'Supra', 'Tundra', 'Venza', 'Verso', 'Yaris'],
+    'Volkswagen' => ['Amarok', 'Arteon', 'Atlas', 'Beetle', 'Bora', 'Caddy', 'California', 'Caravelle', 'CC', 'Crafter', 'Eos', 'Fox', 'Golf', 'Golf Plus', 'Golf Variant', 'ID.3', 'ID.4', 'ID.5', 'Jetta', 'Lupo', 'Multivan', 'New Beetle', 'Passat', 'Passat CC', 'Phaeton', 'Pointer', 'Polo', 'Scirocco', 'Sharan', 'T-Cross', 'T-Roc', 'Taos', 'Teramont', 'Tiguan', 'Touareg', 'Touran', 'Transporter', 'up!', 'Vento'],
+    'Renault' => ['Arkana', 'Captur', 'Clio', 'Dokker', 'Duster', 'Espace', 'Fluence', 'Kangoo', 'Kaptur', 'Koleos', 'Laguna', 'Latitude', 'Logan', 'Master', 'Megane', 'Sandero', 'Scenic', 'Symbol', 'Trafic', 'Twingo'],
+    'Skoda' => ['Citigo', 'Fabia', 'Felicia', 'Kamiq', 'Karoq', 'Kodiaq', 'Octavia', 'Rapid', 'Roomster', 'Scala', 'Superb', 'Yeti'],
+    'Nissan' => ['Almera', 'Juke', 'Leaf', 'Maxima', 'Micra', 'Murano', 'Navara', 'Note', 'Pathfinder', 'Patrol', 'Primera', 'Qashqai', 'Sentra', 'Serena', 'Teana', 'Terrano', 'Tiida', 'X-Trail'],
+    'Ford' => ['C-Max', 'EcoSport', 'Escape', 'Explorer', 'Fiesta', 'Focus', 'Fusion', 'Galaxy', 'Kuga', 'Maverick', 'Mondeo', 'Mustang', 'Ranger', 'S-Max', 'Transit', 'Transit Connect', 'Transit Custom'],
+    'Chevrolet' => ['Aveo', 'Camaro', 'Captiva', 'Cobalt', 'Corvette', 'Cruze', 'Epica', 'Lacetti', 'Lanos', 'Malibu', 'Niva', 'Orlando', 'Rezzo', 'Spark', 'Tahoe', 'TrailBlazer'],
+    'Mitsubishi' => ['ASX', 'Carisma', 'Colt', 'Eclipse Cross', 'Galant', 'L200', 'Lancer', 'Outlander', 'Pajero', 'Pajero Pinin', 'Pajero Sport', 'Space Star'],
+    'Mazda' => ['2', '3', '5', '6', '323', '626', 'Atenza', 'Axela', 'CX-3', 'CX-30', 'CX-5', 'CX-7', 'CX-9', 'MX-5', 'Premacy', 'Tribute'],
+    'Mercedes-Benz' => ['A-Class', 'B-Class', 'C-Class', 'CLA', 'CLK', 'CLS', 'E-Class', 'G-Class', 'GL', 'GLA', 'GLB', 'GLC', 'GLE', 'GLK', 'GLS', 'M-Class', 'S-Class', 'SL', 'Sprinter', 'V-Class', 'Viano', 'Vito'],
+    'BMW' => ['1 Series', '2 Series', '3 Series', '4 Series', '5 Series', '6 Series', '7 Series', '8 Series', 'i3', 'i4', 'i8', 'X1', 'X2', 'X3', 'X4', 'X5', 'X6', 'X7', 'Z4'],
+    'Audi' => ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'Allroad', 'Q2', 'Q3', 'Q5', 'Q7', 'Q8', 'R8', 'RS3', 'RS4', 'RS5', 'RS6', 'S3', 'S4', 'S5', 'S6', 'TT'],
+    'Peugeot' => ['107', '206', '207', '208', '3008', '301', '307', '308', '4007', '408', '5008', '508', '607', 'Partner', 'Traveller'],
+    'Citroen' => ['Berlingo', 'C-Elysee', 'C-Crosser', 'C1', 'C3', 'C4', 'C4 Picasso', 'C5', 'DS3', 'DS4', 'DS5', 'Jumpy', 'SpaceTourer', 'Xsara'],
+    'Opel' => ['Antara', 'Astra', 'Corsa', 'Frontera', 'Insignia', 'Meriva', 'Mokka', 'Omega', 'Signum', 'Vectra', 'Vivaro', 'Zafira'],
+    'Honda' => ['Accord', 'Civic', 'CR-V', 'Crosstour', 'Element', 'Fit', 'HR-V', 'Insight', 'Jazz', 'Legend', 'Odyssey', 'Pilot', 'Stepwgn', 'Stream'],
+    'Geely' => ['Atlas', 'Atlas Pro', 'Coolray', 'Emgrand', 'Emgrand EC7', 'Geometry C', 'Monjaro', 'Okavango', 'Tugella'],
+    'Chery' => ['Amulet', 'Arrizo 8', 'Bonus', 'Fora', 'Kimo', 'M11', 'Tiggo', 'Tiggo 2', 'Tiggo 3', 'Tiggo 4', 'Tiggo 4 Pro', 'Tiggo 7', 'Tiggo 7 Pro', 'Tiggo 8', 'Tiggo 8 Pro', 'Tiggo 8 Pro Max'],
+    'Haval' => ['Dargo', 'F7', 'F7x', 'H2', 'H5', 'H6', 'H9', 'Jolion', 'M6'],
+    'Changan' => ['Alsvin', 'CS35', 'CS35 Plus', 'CS55', 'CS55 Plus', 'CS75', 'CS75 Plus', 'CS85 Coupe', 'CS95', 'Eado', 'Hunter Plus', 'Lamore', 'Uni-K', 'Uni-S', 'Uni-T', 'Uni-V'],
+    'Omoda' => ['C5', 'S5'],
+    'Exeed' => ['LX', 'RX', 'TXL', 'VX'],
+    'Москвич' => ['3', '3e', '6'],
+    'УАЗ' => ['Буханка', 'Патриот', 'Пикап', 'Профи', 'Хантер'],
+    'ГАЗ' => ['Валдай Next', 'Газель', 'Газель Бизнес', 'ГАЗель Next', 'ГАЗель NN', 'Соболь', 'Соболь Бизнес', 'Соболь NN'],
 ];
 
 $services = [
@@ -346,6 +346,7 @@ $jsonLd = [
               <select class="field" id="car_model" name="car_model" data-car-model disabled>
                 <option value="">Сначала выберите марку</option>
               </select>
+              <input class="field mt-3 hidden" id="car_model_custom" name="car_model_custom" type="text" placeholder="Введите модель вручную" data-car-model-custom disabled>
               <input type="hidden" name="car" data-car-combined>
             </div>
 
@@ -611,6 +612,7 @@ $jsonLd = [
                   <select class="field" id="final_car_model" name="car_model" data-car-model disabled>
                     <option value="">Сначала выберите марку</option>
                   </select>
+                  <input class="field mt-3 hidden" id="final_car_model_custom" name="car_model_custom" type="text" placeholder="Введите модель вручную" data-car-model-custom disabled>
                   <input type="hidden" name="car" data-car-combined>
                 </div>
 

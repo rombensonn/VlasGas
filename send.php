@@ -138,6 +138,7 @@ $problem = post_value('problem');
 $phoneRaw = post_value('phone');
 $carBrand = post_value('car_brand');
 $carModel = post_value('car_model');
+$carModelCustom = post_value('car_model_custom');
 $car = post_value('car');
 $name = post_value('name');
 $comment = post_value('comment');
@@ -145,6 +146,10 @@ $personalDataConsent = post_value('personal_data_consent');
 $privacyPolicyConsent = post_value('privacy_policy_consent');
 
 if ($car === '') {
+    if ($carModel === '__custom__') {
+        $carModel = $carModelCustom;
+    }
+
     $car = trim($carBrand . ' ' . $carModel);
 }
 

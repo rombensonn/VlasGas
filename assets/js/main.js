@@ -91,6 +91,7 @@
     document.querySelectorAll('[data-estimate-form]').forEach((form) => {
       const brandSelect = form.querySelector('[data-car-brand]');
       const modelSelect = form.querySelector('[data-car-model]');
+      const customModelInput = form.querySelector('[data-car-model-custom]');
       const combinedInput = form.querySelector('[data-car-combined]');
 
       if (!brandSelect || !modelSelect || !combinedInput) {
@@ -99,8 +100,27 @@
 
       function updateCombinedValue() {
         const brand = brandSelect.value.trim();
-        const model = modelSelect.value.trim();
+        const model = modelSelect.value === '__custom__'
+          ? String(customModelInput ? customModelInput.value : '').trim()
+          : modelSelect.value.trim();
         combinedInput.value = [brand, model].filter(Boolean).join(' ');
+      }
+
+      function updateCustomModelState() {
+        if (!customModelInput) {
+          updateCombinedValue();
+          return;
+        }
+
+        const isCustom = modelSelect.value === '__custom__';
+        customModelInput.classList.toggle('hidden', !isCustom);
+        customModelInput.disabled = !isCustom;
+
+        if (!isCustom) {
+          customModelInput.value = '';
+        }
+
+        updateCombinedValue();
       }
 
       function renderModels() {
@@ -121,12 +141,22 @@
           modelSelect.appendChild(option);
         });
 
+        if (brand) {
+          const customOption = document.createElement('option');
+          customOption.value = '__custom__';
+          customOption.textContent = 'Другая модель';
+          modelSelect.appendChild(customOption);
+        }
+
         modelSelect.disabled = !brand;
-        updateCombinedValue();
+        updateCustomModelState();
       }
 
       brandSelect.addEventListener('change', renderModels);
-      modelSelect.addEventListener('change', updateCombinedValue);
+      modelSelect.addEventListener('change', updateCustomModelState);
+      if (customModelInput) {
+        customModelInput.addEventListener('input', updateCombinedValue);
+      }
       form.addEventListener('reset', () => window.setTimeout(renderModels, 0));
       renderModels();
     });
