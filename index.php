@@ -9,12 +9,12 @@ $hours = 'ежедневно 10:00-18:00';
 
 $services = [
     [
-        'id' => 'gbo',
-        'code' => 'GBO',
-        'title' => 'Установка ГБО',
-        'price' => 'от 20 000 ₽',
-        'when' => 'Нужен переход на газобаллонное оборудование.',
-        'includes' => 'Подбор решения, установка и проверка работы системы.',
+        'id' => 'repair',
+        'code' => 'ELEC',
+        'title' => 'Автоэлектрика и ремонт',
+        'price' => 'после диагностики',
+        'when' => 'Не работает свет, проводка, приборка, запуск или есть разряд аккумулятора.',
+        'includes' => 'Поиск причины, согласование стоимости и ремонт.',
     ],
     [
         'id' => 'diagnostics',
@@ -23,6 +23,14 @@ $services = [
         'price' => 'от 1 000 ₽',
         'when' => 'Есть ошибка, нестабильная работа или непонятная неисправность.',
         'includes' => 'Поиск причины до ремонта и лишних замен.',
+    ],
+    [
+        'id' => 'polishing',
+        'code' => 'POLISH',
+        'title' => 'Полировка авто',
+        'price' => 'после оценки',
+        'when' => 'Нужно убрать матовость, мелкие дефекты ЛКП или вернуть кузову аккуратный блеск.',
+        'includes' => 'Оценка состояния покрытия, подбор подхода и согласование работ до старта.',
     ],
     [
         'id' => 'lighting',
@@ -41,12 +49,12 @@ $services = [
         'includes' => 'Выезд к клиенту и диагностика автомобиля.',
     ],
     [
-        'id' => 'repair',
-        'code' => 'ELEC',
-        'title' => 'Ремонт / автоэлектрика',
-        'price' => 'после диагностики',
-        'when' => 'Не работает свет, проводка, приборка, запуск или есть разряд аккумулятора.',
-        'includes' => 'Поиск причины, согласование стоимости и ремонт.',
+        'id' => 'gbo',
+        'code' => 'GBO',
+        'title' => 'Установка ГБО',
+        'price' => 'от 20 000 ₽',
+        'when' => 'Дополнительное направление для тех, кому нужно газобаллонное оборудование.',
+        'includes' => 'Подбор решения, установка и проверка работы системы.',
     ],
 ];
 
@@ -107,8 +115,8 @@ $jsonLd = [
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>VlasGas - ГБО, автоэлектрик и диагностика авто в Домодедово</title>
-  <meta name="description" content="VlasGas в Домодедово: установка ГБО от 20 000 ₽, диагностика авто от 1 000 ₽, выездная диагностика от 3 000 ₽, автоэлектрика и ремонт. Рейтинг 4,9 на Яндекс.Картах.">
+  <title>VlasGas - автоэлектрика, диагностика и полировка авто в Домодедово</title>
+  <meta name="description" content="VlasGas в Домодедово: автоэлектрика и ремонт после диагностики, диагностика авто от 1 000 ₽, полировка авто после оценки, выездная диагностика от 3 000 ₽. Рейтинг 4,9 на Яндекс.Картах.">
   <link rel="preload" href="assets/fonts/inter-cyrillic-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/images/workshop-hero.png" as="image">
   <link rel="stylesheet" href="assets/css/styles.css">
@@ -123,7 +131,7 @@ $jsonLd = [
         <span class="flex h-11 w-11 items-center justify-center rounded-md border border-copper-400/50 bg-copper-500 text-sm font-black text-white">VG</span>
         <span>
           <span class="block text-xl font-black tracking-normal text-white">VlasGas</span>
-          <span class="block text-sm font-semibold text-slate-400">ГБО, диагностика, автоэлектрика</span>
+          <span class="block text-sm font-semibold text-slate-400">Автоэлектрика, диагностика, полировка</span>
         </span>
       </a>
 
@@ -153,13 +161,13 @@ $jsonLd = [
             </div>
 
             <h1 class="mt-7 max-w-[21.5rem] text-[2rem] font-black leading-[1.02] tracking-normal text-white sm:max-w-3xl sm:text-6xl sm:leading-[0.98] lg:text-7xl">
-              <span class="block sm:inline">ГБО и</span>
-              <span class="block sm:inline"> автоэлектрика:</span>
+              <span class="block sm:inline">Автоэлектрика</span>
+              <span class="block sm:inline"> и полировка:</span>
               <span class="block">сначала причина,</span>
-              <span class="block">потом смета</span>
+              <span class="block">потом понятная работа</span>
             </h1>
             <p class="mt-6 max-w-[21.5rem] text-base font-medium leading-7 text-slate-200 sm:max-w-2xl sm:text-xl sm:leading-8">
-              VlasGas в Домодедово диагностирует неисправности, устанавливает ГБО, подключает доп. оборудование и помогает с выездной диагностикой без непонятной стоимости заранее.
+              VlasGas в Домодедово помогает с проводкой, светом, запуском, разрядом аккумулятора, диагностикой и полировкой кузова. Стоимость согласуется после понятной оценки задачи.
             </p>
 
             <div class="mt-8 flex max-w-[21.5rem] flex-col gap-3 sm:max-w-none sm:flex-row sm:justify-center">
@@ -169,16 +177,16 @@ $jsonLd = [
 
             <div class="mt-8 grid max-w-[21.5rem] gap-3 sm:max-w-2xl sm:grid-cols-3">
               <div class="service-chip bg-white/[0.08] text-white backdrop-blur">
+                <div class="text-xs font-black uppercase tracking-[0.16em] text-copper-400">Автоэлектрика</div>
+                <div class="mt-2 text-2xl font-black">после диагностики</div>
+              </div>
+              <div class="service-chip bg-white/[0.08] text-white backdrop-blur">
                 <div class="text-xs font-black uppercase tracking-[0.16em] text-copper-400">Диагностика</div>
                 <div class="mt-2 text-2xl font-black">от 1 000 ₽</div>
               </div>
               <div class="service-chip bg-white/[0.08] text-white backdrop-blur">
-                <div class="text-xs font-black uppercase tracking-[0.16em] text-copper-400">ГБО</div>
-                <div class="mt-2 text-2xl font-black">от 20 000 ₽</div>
-              </div>
-              <div class="service-chip bg-white/[0.08] text-white backdrop-blur">
-                <div class="text-xs font-black uppercase tracking-[0.16em] text-copper-400">Выезд</div>
-                <div class="mt-2 text-2xl font-black">от 3 000 ₽</div>
+                <div class="text-xs font-black uppercase tracking-[0.16em] text-copper-400">Полировка</div>
+                <div class="mt-2 text-2xl font-black">после оценки</div>
               </div>
             </div>
           </div>
@@ -186,8 +194,8 @@ $jsonLd = [
           <aside class="metal-card p-5 sm:p-6 lg:self-center" data-reveal>
             <div class="flex items-start justify-between gap-5">
               <div>
-                <div class="eyebrow">Диагностический пост</div>
-                <h2 class="mt-3 text-2xl font-black leading-tight text-white sm:text-3xl">Работы согласуются после поиска причины</h2>
+                <div class="eyebrow">Электрика и внешний вид</div>
+                <h2 class="mt-3 text-2xl font-black leading-tight text-white sm:text-3xl">Главный фокус: найти неисправность и привести авто в порядок</h2>
               </div>
               <div class="rounded-md border border-copper-400/40 bg-copper-500/20 px-4 py-3 text-right">
                 <div class="text-3xl font-black text-copper-400">4,9</div>
@@ -201,15 +209,15 @@ $jsonLd = [
               <div class="grid grid-cols-[44px_1fr] gap-4">
                 <div class="flex h-11 w-11 items-center justify-center rounded-md bg-white text-sm font-black text-ink">01</div>
                 <div>
-                  <div class="font-black text-white">Вы описываете симптомы</div>
-                  <p class="mt-1 text-sm leading-6 text-slate-300">Форма фиксирует услугу, формат и проблему до звонка.</p>
+                  <div class="font-black text-white">Вы описываете задачу</div>
+                  <p class="mt-1 text-sm leading-6 text-slate-300">Электрика, диагностика, полировка или выезд фиксируются до звонка.</p>
                 </div>
               </div>
               <div class="grid grid-cols-[44px_1fr] gap-4">
                 <div class="flex h-11 w-11 items-center justify-center rounded-md bg-white text-sm font-black text-ink">02</div>
                 <div>
                   <div class="font-black text-white">Мастер уточняет детали</div>
-                  <p class="mt-1 text-sm leading-6 text-slate-300">Если нужна диагностика или выезд, это видно до начала работ.</p>
+                  <p class="mt-1 text-sm leading-6 text-slate-300">По электрике важны симптомы, по полировке - состояние покрытия и желаемый результат.</p>
                 </div>
               </div>
               <div class="grid grid-cols-[44px_1fr] gap-4">
@@ -230,21 +238,21 @@ $jsonLd = [
         <div data-reveal>
           <div class="eyebrow">Расчет заявки</div>
           <h2 class="section-title-dark mt-3">Мини-калькулятор до первого звонка</h2>
-          <p class="section-lead-dark">Выберите услугу, формат и опишите проблему. В заявке не будет выдуманной цены: показываем стартовую стоимость и сразу передаем детали мастеру.</p>
+          <p class="section-lead-dark">Выберите электрику, диагностику, полировку или другое направление и опишите задачу. В заявке не будет выдуманной цены: показываем только подтвержденные стартовые цены и сразу передаем детали мастеру.</p>
 
           <div class="mt-8 metal-card p-5">
             <div class="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <div class="text-sm font-black uppercase tracking-[0.16em] text-slate-400">Предварительно</div>
-                <div class="mt-2 text-2xl font-black text-white" data-service-output>Диагностика авто</div>
-                <p class="mt-2 max-w-md text-sm leading-6 text-slate-300" data-note-output>Подходит, когда нужно понять причину до ремонта и лишних замен.</p>
+                <div class="mt-2 text-2xl font-black text-white" data-service-output>Автоэлектрика и ремонт</div>
+                <p class="mt-2 max-w-md text-sm leading-6 text-slate-300" data-note-output>Сначала ищем причину: свет, проводка, запуск, приборка или разряд аккумулятора.</p>
               </div>
               <div class="min-w-[180px] rounded-lg border border-copper-400/45 bg-ink/70 p-4 text-left shadow-industrial">
                 <div class="flex items-center gap-2 text-xs font-black uppercase tracking-[0.16em] text-copper-400">
                   <span class="h-2 w-2 rounded-full bg-signal"></span>
                   Старт
                 </div>
-                <div class="mt-2 text-3xl font-black text-white" data-price-output>от 1 000 ₽</div>
+                <div class="mt-2 text-3xl font-black text-white" data-price-output>после диагностики</div>
                 <div class="mt-3 h-1.5 overflow-hidden rounded-full bg-white/10">
                   <div class="h-full w-2/3 rounded-full bg-copper-500"></div>
                 </div>
@@ -260,11 +268,12 @@ $jsonLd = [
             <div class="sm:col-span-2">
               <label class="field-label" for="service">Услуга</label>
               <select class="field" id="service" name="service" data-service-select required>
+                <option value="repair">Автоэлектрика и ремонт - после диагностики</option>
                 <option value="diagnostics">Диагностика авто - от 1 000 ₽</option>
-                <option value="gbo">Установка ГБО - от 20 000 ₽</option>
+                <option value="polishing">Полировка авто - после оценки</option>
                 <option value="lighting">Дополнительное освещение - от 4 000 ₽</option>
                 <option value="mobile">Выездная диагностика - от 3 000 ₽</option>
-                <option value="repair">Ремонт / автоэлектрика - после диагностики</option>
+                <option value="gbo">Установка ГБО - от 20 000 ₽</option>
               </select>
             </div>
 
@@ -294,7 +303,7 @@ $jsonLd = [
 
             <div class="sm:col-span-2">
               <label class="field-label" for="problem">Что случилось</label>
-              <textarea class="field min-h-[118px] resize-y" id="problem" name="problem" placeholder="Например: не заводится, горит ошибка, проблема с проводкой, нужен монтаж ГБО..." required></textarea>
+              <textarea class="field min-h-[118px] resize-y" id="problem" name="problem" placeholder="Например: не заводится, горит ошибка, проблема с проводкой, нужна полировка кузова..." required></textarea>
             </div>
 
             <div class="sm:col-span-2">
@@ -315,13 +324,13 @@ $jsonLd = [
         <div class="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <div class="eyebrow">Рабочие направления</div>
-            <h2 class="section-title mt-3">Услуги без лишних формулировок</h2>
-            <p class="section-lead">Каждый модуль отвечает на три вопроса: когда обращаться, что входит и с какой цены начинается работа.</p>
+            <h2 class="section-title mt-3">Сначала электрика и полировка, затем дополнительные работы</h2>
+            <p class="section-lead">Основные направления вынесены первыми. ГБО осталось в списке как второстепенная услуга, без акцента на первом экране.</p>
           </div>
           <a class="btn-dark lg:mb-1" href="#calculator">Подобрать услугу</a>
         </div>
 
-        <div class="mt-10 grid gap-4 lg:grid-cols-5">
+        <div class="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           <?php foreach ($services as $service): ?>
             <article class="motion-card paper-card p-5" data-reveal>
               <div class="flex items-start justify-between gap-4">
@@ -344,17 +353,17 @@ $jsonLd = [
         <div class="section px-4 sm:px-6 lg:px-12 xl:px-16">
           <div class="max-w-2xl" data-reveal>
             <div class="eyebrow">Антистрахи клиента</div>
-            <h2 class="section-title-dark mt-3">Новый визуальный язык строится вокруг прозрачности ремонта</h2>
-            <p class="section-lead-dark">Фото и интерфейс показывают не “красивый сервис ради красоты”, а рабочий процесс: диагностика, приборы, согласование, ремонт.</p>
+            <h2 class="section-title-dark mt-3">Электрика, диагностика и полировка без непонятной сметы</h2>
+            <p class="section-lead-dark">Для электрики сначала ищется причина, для полировки оценивается состояние покрытия. Работы согласуются до старта, без случайных сумм в заявке.</p>
 
             <div class="mt-9 grid gap-4">
               <div class="metal-card p-5">
-                <div class="text-lg font-black">Сначала диагностика</div>
-                <p class="mt-2 text-sm leading-6 text-slate-300">Ремонт начинается с поиска причины, а не с замены деталей наугад.</p>
+                <div class="text-lg font-black">Сначала причина</div>
+                <p class="mt-2 text-sm leading-6 text-slate-300">По электрике работа начинается с поиска неисправности, а не с замены деталей наугад.</p>
               </div>
               <div class="metal-card p-5">
-                <div class="text-lg font-black">Стоимость до работ</div>
-                <p class="mt-2 text-sm leading-6 text-slate-300">После выявления проблемы понятно, что нужно делать и сколько это стоит.</p>
+                <div class="text-lg font-black">Полировка после оценки</div>
+                <p class="mt-2 text-sm leading-6 text-slate-300">Цена по полировке не придумывается заранее: сначала смотрят состояние ЛКП и объем работ.</p>
               </div>
               <div class="metal-card p-5">
                 <div class="text-lg font-black">Есть выезд</div>
@@ -473,7 +482,7 @@ $jsonLd = [
                 <div>
                   <div class="eyebrow">Финальная заявка</div>
                   <h2 class="mt-4 max-w-2xl text-3xl font-black leading-[1.05] sm:text-5xl">
-                    Опишите проблему - мастер поймет, с чего начать
+                    Опишите задачу по электрике, диагностике или полировке
                   </h2>
                 </div>
                 <div class="mt-10 grid gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
@@ -500,11 +509,12 @@ $jsonLd = [
                 <div class="sm:col-span-2">
                   <label class="field-label" for="final_service">Что нужно сделать</label>
                   <select class="field" id="final_service" name="service" data-service-select required>
+                    <option value="repair">Автоэлектрика и ремонт - после диагностики</option>
                     <option value="diagnostics">Диагностика авто - от 1 000 ₽</option>
-                    <option value="gbo">Установка ГБО - от 20 000 ₽</option>
+                    <option value="polishing">Полировка авто - после оценки</option>
                     <option value="lighting">Дополнительное освещение - от 4 000 ₽</option>
                     <option value="mobile">Выездная диагностика - от 3 000 ₽</option>
-                    <option value="repair">Ремонт / автоэлектрика - после диагностики</option>
+                    <option value="gbo">Установка ГБО - от 20 000 ₽</option>
                   </select>
                 </div>
 
@@ -534,7 +544,7 @@ $jsonLd = [
 
                 <div class="sm:col-span-2">
                   <label class="field-label" for="final_problem">Описание проблемы</label>
-                  <textarea class="field min-h-[132px] resize-y" id="final_problem" name="problem" placeholder="Что произошло, когда началось, есть ли ошибка на панели, нужен ли выезд..." required></textarea>
+                  <textarea class="field min-h-[132px] resize-y" id="final_problem" name="problem" placeholder="Что произошло с электрикой, какая ошибка на панели, что нужно по полировке или нужен ли выезд..." required></textarea>
                 </div>
 
                 <div class="sm:col-span-2">

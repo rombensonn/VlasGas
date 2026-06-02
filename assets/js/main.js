@@ -1,14 +1,24 @@
 (function () {
   const services = {
-    gbo: {
-      label: 'Установка ГБО',
-      priceText: 'от 20 000 ₽',
-      note: 'Смета зависит от комплектации автомобиля и выбранного оборудования.'
+    repair: {
+      label: 'Автоэлектрика и ремонт',
+      priceText: 'после диагностики',
+      note: 'Сначала ищем причину: свет, проводка, запуск, приборка или разряд аккумулятора.'
     },
     diagnostics: {
       label: 'Диагностика авто',
       priceText: 'от 1 000 ₽',
       note: 'Подходит, когда нужно понять причину до ремонта и лишних замен.'
+    },
+    polishing: {
+      label: 'Полировка авто',
+      priceText: 'после оценки',
+      note: 'Стоимость понятна после осмотра состояния ЛКП и объема работ.'
+    },
+    gbo: {
+      label: 'Установка ГБО',
+      priceText: 'от 20 000 ₽',
+      note: 'Дополнительное направление: смета зависит от комплектации автомобиля и выбранного оборудования.'
     },
     lighting: {
       label: 'Дополнительное освещение',
@@ -19,11 +29,6 @@
       label: 'Выездная диагностика',
       priceText: 'от 3 000 ₽',
       note: 'Мастер выезжает к автомобилю, если удобнее не ехать в сервис.'
-    },
-    repair: {
-      label: 'Ремонт / автоэлектрика',
-      priceText: 'после диагностики',
-      note: 'Сумма понятна после поиска причины неисправности.'
     }
   };
 
@@ -37,7 +42,7 @@
       return;
     }
 
-    const selected = services[serviceKey] || services.diagnostics;
+    const selected = services[serviceKey] || services.repair;
     priceOutput.textContent = selected.priceText;
     serviceOutput.textContent = selected.label;
     noteOutput.textContent = selected.note;
