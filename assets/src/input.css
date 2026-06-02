@@ -148,6 +148,44 @@
     @apply rounded-md border border-stone-300 bg-white px-4 py-3;
   }
 
+  .service-badge {
+    @apply rounded-md border border-ink/10 bg-ink px-3 py-2 text-xs font-bold uppercase tracking-[0.12em] text-copper-400;
+  }
+
+  .hero-system-card {
+    background:
+      radial-gradient(circle at 100% 0%, rgba(244,122,31,0.2), transparent 36%),
+      linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.045));
+  }
+
+  .rating-plate {
+    @apply rounded-lg border border-copper-400/45 bg-copper-500/15 p-4 shadow-copper;
+  }
+
+  .hero-step {
+    @apply grid grid-cols-[44px_1fr] gap-4 rounded-lg border border-white/[0.08] bg-white/[0.045] p-3;
+  }
+
+  .hero-step-number {
+    @apply flex h-11 w-11 items-center justify-center rounded-md bg-white text-sm font-bold text-ink;
+  }
+
+  .feature-card {
+    @apply relative overflow-hidden rounded-lg border border-white/[0.12] bg-white/[0.055] p-5 shadow-industrial backdrop-blur;
+  }
+
+  .feature-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 3px;
+    background: linear-gradient(180deg, #f6a044, rgba(244, 122, 31, 0.18));
+  }
+
+  .feature-mark {
+    @apply inline-flex h-10 min-w-10 items-center justify-center rounded-md border border-copper-400/40 bg-copper-500/15 px-3 text-sm font-bold text-copper-400;
+  }
+
   .industrial-rule {
     @apply h-px w-full bg-white/[0.12];
   }
@@ -176,6 +214,13 @@
       linear-gradient(135deg, #111820 0%, #090d10 46%, #18212a 100%);
   }
 
+  .feature-band {
+    background:
+      radial-gradient(circle at 88% 20%, rgba(73, 166, 216, 0.12), transparent 32%),
+      radial-gradient(circle at 8% 100%, rgba(244, 122, 31, 0.18), transparent 34%),
+      linear-gradient(90deg, rgba(9, 13, 16, 0.98), rgba(14, 21, 28, 0.94));
+  }
+
   .copper-line {
     background: linear-gradient(90deg, #f6a044, #f47a1f 42%, rgba(244, 122, 31, 0));
   }
@@ -190,6 +235,8 @@
     .btn-dark,
     .motion-card,
     .service-chip,
+    .feature-card,
+    .hero-step,
     .field {
       transition-duration: 260ms;
       transition-property: background-color, border-color, box-shadow, color, opacity, transform;
@@ -212,7 +259,9 @@
     }
 
     .motion-card:hover,
-    .service-chip:hover {
+    .service-chip:hover,
+    .feature-card:hover,
+    .hero-step:hover {
       transform: translateY(-4px);
     }
 

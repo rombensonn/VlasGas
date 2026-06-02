@@ -47,7 +47,7 @@ $carCatalog = [
 $services = [
     [
         'id' => 'repair',
-        'code' => 'ELEC',
+        'code' => 'Электрика',
         'title' => 'Автоэлектрика и ремонт',
         'price' => 'от 1 000 ₽',
         'when' => 'Не работает свет, проводка, приборка, запуск или есть разряд аккумулятора.',
@@ -55,7 +55,7 @@ $services = [
     ],
     [
         'id' => 'diagnostics',
-        'code' => 'SCAN',
+        'code' => 'Диагностика',
         'title' => 'Диагностика авто',
         'price' => 'от 1 000 ₽',
         'when' => 'Есть ошибка, нестабильная работа или непонятная неисправность.',
@@ -63,7 +63,7 @@ $services = [
     ],
     [
         'id' => 'polishing',
-        'code' => 'POLISH',
+        'code' => 'Полировка',
         'title' => 'Полировка авто',
         'price' => 'после оценки',
         'when' => 'Нужно убрать матовость, мелкие дефекты ЛКП или вернуть кузову аккуратный блеск.',
@@ -71,7 +71,7 @@ $services = [
     ],
     [
         'id' => 'lighting',
-        'code' => 'LIGHT',
+        'code' => 'Доп. свет',
         'title' => 'Дополнительное освещение',
         'price' => 'от 4 000 ₽',
         'when' => 'Нужно поставить доп. оборудование для внедорожника.',
@@ -79,7 +79,7 @@ $services = [
     ],
     [
         'id' => 'mobile',
-        'code' => 'OUT',
+        'code' => 'Выезд',
         'title' => 'Выездная диагностика',
         'price' => 'от 3 000 ₽',
         'when' => 'Автомобиль не едет или удобнее показать его на месте.',
@@ -87,7 +87,7 @@ $services = [
     ],
     [
         'id' => 'gbo',
-        'code' => 'GBO',
+        'code' => 'ГБО',
         'title' => 'Установка ГБО',
         'price' => 'от 20 000 ₽',
         'when' => 'Дополнительное направление для тех, кому нужно газобаллонное оборудование.',
@@ -232,39 +232,46 @@ $jsonLd = [
             </div>
           </div>
 
-          <aside class="metal-card p-5 sm:p-6 lg:self-center" data-reveal>
-            <div class="flex items-start justify-between gap-5">
+          <aside class="metal-card hero-system-card p-5 sm:p-6 lg:self-center" data-reveal>
+            <div class="grid gap-5 sm:grid-cols-[1fr_136px] sm:items-start">
               <div>
-                <div class="eyebrow">Электрика и внешний вид</div>
-                <h2 class="mt-3 text-2xl font-black leading-tight text-white sm:text-3xl">Главный фокус: найти неисправность и привести авто в порядок</h2>
+                <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.07] px-3 py-2 text-xs font-bold uppercase tracking-[0.12em] text-slate-200">
+                  <span class="h-2 w-2 rounded-full bg-signal"></span>
+                  Работа по шагам
+                </div>
+                <h2 class="mt-4 text-2xl font-black leading-tight text-white sm:text-3xl">Главный фокус: найти неисправность и привести авто в порядок</h2>
               </div>
-              <div class="rounded-md border border-copper-400/40 bg-copper-500/20 px-4 py-3 text-right">
-                <div class="text-3xl font-black text-copper-400">4,9</div>
-                <div class="text-xs font-black uppercase tracking-[0.12em] text-slate-300">рейтинг</div>
+              <div class="rating-plate">
+                <div class="text-[0.68rem] font-bold uppercase tracking-[0.14em] text-slate-300">Яндекс.Карты</div>
+                <div class="mt-2 text-5xl font-black leading-none text-white">4,9</div>
+                <div class="mt-3 flex items-center justify-between gap-2 text-xs font-bold text-slate-300">
+                  <span>25 оценок</span>
+                  <span class="h-2 w-2 rounded-full bg-copper-400"></span>
+                </div>
               </div>
             </div>
 
             <div class="industrial-rule my-5"></div>
 
-            <div class="grid gap-4">
-              <div class="grid grid-cols-[44px_1fr] gap-4">
-                <div class="flex h-11 w-11 items-center justify-center rounded-md bg-white text-sm font-black text-ink">01</div>
+            <div class="grid gap-3">
+              <div class="hero-step">
+                <div class="hero-step-number">01</div>
                 <div>
-                  <div class="font-black text-white">Вы описываете задачу</div>
+                  <div class="font-bold text-white">Вы описываете задачу</div>
                   <p class="mt-1 text-sm leading-6 text-slate-300">Электрика, диагностика, полировка или выезд фиксируются до звонка.</p>
                 </div>
               </div>
-              <div class="grid grid-cols-[44px_1fr] gap-4">
-                <div class="flex h-11 w-11 items-center justify-center rounded-md bg-white text-sm font-black text-ink">02</div>
+              <div class="hero-step">
+                <div class="hero-step-number">02</div>
                 <div>
-                  <div class="font-black text-white">Мастер уточняет детали</div>
+                  <div class="font-bold text-white">Мастер уточняет детали</div>
                   <p class="mt-1 text-sm leading-6 text-slate-300">По электрике важны симптомы, по полировке - состояние покрытия и желаемый результат.</p>
                 </div>
               </div>
-              <div class="grid grid-cols-[44px_1fr] gap-4">
-                <div class="flex h-11 w-11 items-center justify-center rounded-md bg-white text-sm font-black text-ink">03</div>
+              <div class="hero-step">
+                <div class="hero-step-number">03</div>
                 <div>
-                  <div class="font-black text-white">Стоимость согласуется</div>
+                  <div class="font-bold text-white">Стоимость согласуется</div>
                   <p class="mt-1 text-sm leading-6 text-slate-300">Ремонт не начинается с непонятной суммы “на всякий случай”.</p>
                 </div>
               </div>
@@ -400,7 +407,7 @@ $jsonLd = [
           <?php foreach ($services as $service): ?>
             <article class="motion-card paper-card p-5" data-reveal>
               <div class="flex items-start justify-between gap-4">
-                <div class="rounded-md bg-ink px-3 py-2 text-xs font-black uppercase tracking-[0.16em] text-copper-400"><?= htmlspecialchars($service['code'], ENT_QUOTES, 'UTF-8'); ?></div>
+                <div class="service-badge"><?= htmlspecialchars($service['code'], ENT_QUOTES, 'UTF-8'); ?></div>
                 <div class="text-right text-lg font-black text-copper-600"><?= htmlspecialchars($service['price'], ENT_QUOTES, 'UTF-8'); ?></div>
               </div>
               <h3 class="mt-6 text-xl font-black leading-tight"><?= htmlspecialchars($service['title'], ENT_QUOTES, 'UTF-8'); ?></h3>
@@ -449,7 +456,7 @@ $jsonLd = [
       <div class="container-page">
         <div class="grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
           <div data-reveal>
-            <div class="eyebrow">Социальное доказательство</div>
+            <div class="eyebrow">Отзывы клиентов</div>
             <h2 class="section-title-dark mt-3">4,9 по 25 оценкам</h2>
             <p class="section-lead-dark">Отзывы на Яндекс.Картах повторяют то, что важно клиенту автосервиса: нашли причину, сделали быстро, цена адекватная, мастер объясняет.</p>
             <div class="mt-8 grid grid-cols-2 gap-3">
@@ -479,28 +486,36 @@ $jsonLd = [
       </div>
     </section>
 
-    <section class="section bg-paper text-ink">
+    <section class="section feature-band text-white">
       <div class="container-page">
-        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          <div class="paper-card p-5" data-reveal>
-            <div class="text-sm font-black uppercase tracking-[0.16em] text-copper-600">Оплата</div>
-            <div class="mt-3 text-2xl font-black">Картой</div>
-            <p class="mt-2 text-sm leading-6 text-slate-600">Особенность указана в карточке бизнеса.</p>
+        <div class="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+          <div data-reveal>
+            <div class="eyebrow">Удобство обращения</div>
+            <h2 class="mt-3 max-w-3xl text-3xl font-black leading-[1.05] text-white sm:text-4xl lg:text-5xl">Что уже предусмотрено для клиента</h2>
           </div>
-          <div class="paper-card p-5" data-reveal>
-            <div class="text-sm font-black uppercase tracking-[0.16em] text-copper-600">На месте</div>
-            <div class="mt-3 text-2xl font-black">Парковка</div>
-            <p class="mt-2 text-sm leading-6 text-slate-600">Можно приехать на диагностику или ремонт.</p>
+          <p class="max-w-xl text-base leading-7 text-slate-300 lg:text-right" data-reveal>Только факты из карточки VlasGas: можно оплатить картой, приехать на место, записаться заранее и ориентироваться на отмеченную гарантию.</p>
+        </div>
+
+        <div class="mt-9 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <div class="feature-card" data-reveal>
+            <div class="feature-mark">01</div>
+            <div class="mt-7 text-2xl font-black">Оплата картой</div>
+            <p class="mt-3 text-sm leading-6 text-slate-300">Удобно закрыть вопрос на месте после согласования работ.</p>
           </div>
-          <div class="paper-card p-5" data-reveal>
-            <div class="text-sm font-black uppercase tracking-[0.16em] text-copper-600">Удобство</div>
-            <div class="mt-3 text-2xl font-black">Запись</div>
-            <p class="mt-2 text-sm leading-6 text-slate-600">Заявка помогает заранее описать проблему.</p>
+          <div class="feature-card" data-reveal>
+            <div class="feature-mark">02</div>
+            <div class="mt-7 text-2xl font-black">Парковка</div>
+            <p class="mt-3 text-sm leading-6 text-slate-300">Можно спокойно приехать на диагностику, ремонт или оценку полировки.</p>
           </div>
-          <div class="paper-card p-5" data-reveal>
-            <div class="text-sm font-black uppercase tracking-[0.16em] text-copper-600">Карточка</div>
-            <div class="mt-3 text-2xl font-black">Гарантия</div>
-            <p class="mt-2 text-sm leading-6 text-slate-600">Отмечена как особенность VlasGas.</p>
+          <div class="feature-card" data-reveal>
+            <div class="feature-mark">03</div>
+            <div class="mt-7 text-2xl font-black">Запись заранее</div>
+            <p class="mt-3 text-sm leading-6 text-slate-300">Форма помогает передать симптомы до звонка и не объяснять все заново.</p>
+          </div>
+          <div class="feature-card" data-reveal>
+            <div class="feature-mark">04</div>
+            <div class="mt-7 text-2xl font-black">Гарантия</div>
+            <p class="mt-3 text-sm leading-6 text-slate-300">Отмечена в карточке бизнеса как особенность сервиса.</p>
           </div>
         </div>
       </div>
