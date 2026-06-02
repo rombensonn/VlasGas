@@ -28,6 +28,7 @@ function load_env_file(string $path): void
         }
 
         [$key, $value] = array_map('trim', explode('=', $line, 2));
+        $key = preg_replace('/^\xEF\xBB\xBF/', '', $key) ?? $key;
         $value = trim($value, "\"'");
 
         if ($key !== '' && getenv($key) === false) {
@@ -60,7 +61,7 @@ function normalize_phone(string $phone): string
 
 function telegram_send(string $token, string $chatId, string $message): bool
 {
-    $url = 'https://api.telegram.org/bot' . rawurlencode($token) . '/sendMessage';
+    $url = 'https://api.telegram.org/bot' . $token . '/sendMessage';
     $payload = [
         'chat_id' => $chatId,
         'text' => $message,
@@ -105,6 +106,58 @@ function telegram_send(string $token, string $chatId, string $message): bool
     $decoded = json_decode((string) $response, true);
 
     return is_array($decoded) && ($decoded['ok'] ?? false) === true;
+}
+
+function smsaero_send(string $email, string $apiKey, string $number, string $text, string $sign): bool
+{
+    $digits = preg_replace('/\D+/', '', $number) ?? '';
+    if ($digits === '') {
+        return false;
+    }
+
+    $query = http_build_query([
+        'number' => $digits,
+        'text' => $text,
+        'sign' => $sign,
+    ], '', '&', PHP_QUERY_RFC3986);
+
+    $url = 'https://gate.smsaero.ru/v2/sms/send?' . $query;
+
+    if (function_exists('curl_init')) {
+        $ch = curl_init($url);
+        curl_setopt_array($ch, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_TIMEOUT => 10,
+            CURLOPT_USERPWD => $email . ':' . $apiKey,
+            CURLOPT_HTTPAUTH => CURLAUTH_BASIC,
+        ]);
+
+        $response = curl_exec($ch);
+        $status = (int) curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
+        $error = curl_error($ch);
+        curl_close($ch);
+
+        if ($response === false || $error !== '' || $status < 200 || $status >= 300) {
+            return false;
+        }
+
+        $decoded = json_decode((string) $response, true);
+        return is_array($decoded) && ($decoded['success'] ?? false) === true;
+    }
+
+    $context = stream_context_create([
+        'http' => [
+            'method' => 'GET',
+            'header' => 'Authorization: Basic ' . base64_encode($email . ':' . $apiKey) . "\r\n",
+            'timeout' => 10,
+            'ignore_errors' => true,
+        ],
+    ]);
+
+    $response = file_get_contents($url, false, $context);
+    $decoded = json_decode((string) $response, true);
+
+    return is_array($decoded) && ($decoded['success'] ?? false) === true;
 }
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -176,8 +229,15 @@ if (strlen($digits) < 10 || strlen($digits) > 15) {
 
 $token = getenv('TELEGRAM_BOT_TOKEN') ?: '';
 $chatId = getenv('TELEGRAM_CHAT_ID') ?: '';
+$smsAeroEmail = getenv('SMSAERO_EMAIL') ?: '';
+$smsAeroApiKey = getenv('SMSAERO_API_KEY') ?: '';
+$smsAeroTo = getenv('SMSAERO_TO') ?: '';
+$smsAeroSign = getenv('SMSAERO_SIGN') ?: 'SMS Aero';
 
-if ($token === '' || $chatId === '') {
+$telegramEnabled = $token !== '' && $chatId !== '';
+$smsAeroEnabled = $smsAeroEmail !== '' && $smsAeroApiKey !== '' && $smsAeroTo !== '';
+
+if (!$telegramEnabled && !$smsAeroEnabled) {
     json_response([
         'ok' => false,
         'error' => 'Канал уведомлений пока не настроен. Позвоните по номеру +7 (927) 519-01-33.'
@@ -197,7 +257,21 @@ $message = implode("\n", array_filter([
     '<b>Согласия:</b> получены',
 ]));
 
-if (!telegram_send($token, $chatId, $message)) {
+$smsText = mb_substr(implode("\n", array_filter([
+    'VlasGas: новая заявка',
+    'Услуга: ' . $services[$serviceKey],
+    'Формат: ' . ($visitTypes[$visitKey] ?? 'Не указан'),
+    'Телефон: ' . $phone,
+    $name !== '' ? 'Имя: ' . $name : '',
+    $car !== '' ? 'Авто: ' . $car : '',
+    'Проблема: ' . $problem,
+    $comment !== '' ? 'Комментарий: ' . $comment : '',
+])), 0, 900);
+
+$telegramOk = $telegramEnabled && telegram_send($token, $chatId, $message);
+$smsAeroOk = $smsAeroEnabled && smsaero_send($smsAeroEmail, $smsAeroApiKey, $smsAeroTo, $smsText, $smsAeroSign);
+
+if (!$telegramOk && !$smsAeroOk) {
     json_response([
         'ok' => false,
         'error' => 'Не удалось отправить заявку. Позвоните по номеру +7 (927) 519-01-33.'

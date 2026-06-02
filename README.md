@@ -26,3 +26,16 @@ TELEGRAM_CHAT_ID=...
 ```
 
 Форма отправляет `POST /send.php` и получает JSON-ответ.
+
+## SMSAERO
+
+SMSAERO подключается как дополнительный канал уведомлений. Если переменные заполнены, `send.php` отправит короткое SMS с данными заявки.
+
+```env
+SMSAERO_EMAIL=...
+SMSAERO_API_KEY=...
+SMSAERO_SIGN=SMS Aero
+SMSAERO_TO=79275190133
+```
+
+Нужны email аккаунта SMSAERO, API-ключ, имя отправителя и номер получателя SMS в формате `7XXXXXXXXXX`.
