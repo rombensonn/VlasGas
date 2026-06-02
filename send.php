@@ -31,7 +31,7 @@ function load_env_file(string $path): void
         $key = preg_replace('/^\xEF\xBB\xBF/', '', $key) ?? $key;
         $value = trim($value, "\"'");
 
-        if ($key !== '' && getenv($key) === false) {
+        if ($key !== '') {
             putenv($key . '=' . $value);
             $_ENV[$key] = $value;
         }
