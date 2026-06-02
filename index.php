@@ -703,24 +703,12 @@ $jsonLd = [
               <dd><?= htmlspecialchars($ownerInn, ENT_QUOTES, 'UTF-8'); ?></dd>
             </div>
             <div>
-              <dt class="font-black text-slate-200">ОГРН / ОГРНИП</dt>
-              <dd>Не применяется для самозанятого физического лица на НПД</dd>
-            </div>
-            <div>
               <dt class="font-black text-slate-200">Адрес для юридических обращений</dt>
               <dd><?= htmlspecialchars($legalAddress, ENT_QUOTES, 'UTF-8'); ?></dd>
             </div>
             <div>
               <dt class="font-black text-slate-200">Email для обращений по ПДн</dt>
               <dd><a class="text-copper-400" href="mailto:<?= htmlspecialchars($ownerEmail, ENT_QUOTES, 'UTF-8'); ?>"><?= htmlspecialchars($ownerEmail, ENT_QUOTES, 'UTF-8'); ?></a></dd>
-            </div>
-            <div>
-              <dt class="font-black text-slate-200">РКН</dt>
-              <dd>Сведения о регистрационном номере оператора ПДн отсутствуют в переданных реквизитах</dd>
-            </div>
-            <div>
-              <dt class="font-black text-slate-200">Налоговый статус</dt>
-              <dd>Плательщик налога на профессиональный доход. При оплате формируется чек самозанятого.</dd>
             </div>
           </dl>
         </div>
