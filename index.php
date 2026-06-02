@@ -6,6 +6,11 @@ $phoneHref = 'tel:+79275190133';
 $mapUrl = 'https://yandex.ru/maps/-/CPToEY3p';
 $address = 'Тенистая ул., 29, микрорайон Западный, Домодедово';
 $hours = 'ежедневно 10:00-18:00';
+$ownerName = 'Власов Владислав Сергеевич';
+$ownerLegalLabel = 'Самозанятый ' . $ownerName;
+$ownerInn = '345402094690';
+$ownerEmail = 'Vladislaw.vlasov2013@yandex.ru';
+$legalAddress = $address;
 
 $carCatalog = [
     'Lada' => ['1111 Ока', '2104', '2105', '2107', 'Granta', 'Vesta', 'XRAY', 'Niva', 'Niva Travel', 'Largus', 'Priora', 'Kalina', 'Samara', '2110', '2111', '2112'],
@@ -118,6 +123,7 @@ $jsonLd = [
     '@type' => 'AutoRepair',
     'name' => 'VlasGas',
     'telephone' => $phoneDisplay,
+    'email' => $ownerEmail,
     'address' => [
         '@type' => 'PostalAddress',
         'streetAddress' => 'Тенистая ул., 29',
@@ -671,6 +677,10 @@ $jsonLd = [
               <dd><a class="text-copper-400" href="<?= $phoneHref; ?>"><?= $phoneDisplay; ?></a></dd>
             </div>
             <div>
+              <dt class="font-black text-slate-200">Email для обращений</dt>
+              <dd><a class="text-copper-400" href="mailto:<?= htmlspecialchars($ownerEmail, ENT_QUOTES, 'UTF-8'); ?>"><?= htmlspecialchars($ownerEmail, ENT_QUOTES, 'UTF-8'); ?></a></dd>
+            </div>
+            <div>
               <dt class="font-black text-slate-200">Адрес оказания услуг</dt>
               <dd><?= htmlspecialchars($address, ENT_QUOTES, 'UTF-8'); ?></dd>
             </div>
@@ -686,23 +696,31 @@ $jsonLd = [
           <dl class="mt-5 grid gap-3 text-sm leading-6">
             <div>
               <dt class="font-black text-slate-200">Владелец сайта / оператор ПДн</dt>
-              <dd>[Юридическое наименование / ИП / самозанятый]</dd>
+              <dd><?= htmlspecialchars($ownerLegalLabel, ENT_QUOTES, 'UTF-8'); ?></dd>
             </div>
             <div>
-              <dt class="font-black text-slate-200">ИНН / ОГРН / ОГРНИП</dt>
-              <dd>[ИНН] / [ОГРН или ОГРНИП]</dd>
+              <dt class="font-black text-slate-200">ИНН</dt>
+              <dd><?= htmlspecialchars($ownerInn, ENT_QUOTES, 'UTF-8'); ?></dd>
             </div>
             <div>
-              <dt class="font-black text-slate-200">Юридический адрес</dt>
-              <dd>[Юридический адрес владельца сайта]</dd>
+              <dt class="font-black text-slate-200">ОГРН / ОГРНИП</dt>
+              <dd>Не применяется для самозанятого физического лица на НПД</dd>
+            </div>
+            <div>
+              <dt class="font-black text-slate-200">Адрес для юридических обращений</dt>
+              <dd><?= htmlspecialchars($legalAddress, ENT_QUOTES, 'UTF-8'); ?></dd>
             </div>
             <div>
               <dt class="font-black text-slate-200">Email для обращений по ПДн</dt>
-              <dd>[email@example.ru]</dd>
+              <dd><a class="text-copper-400" href="mailto:<?= htmlspecialchars($ownerEmail, ENT_QUOTES, 'UTF-8'); ?>"><?= htmlspecialchars($ownerEmail, ENT_QUOTES, 'UTF-8'); ?></a></dd>
             </div>
             <div>
               <dt class="font-black text-slate-200">РКН</dt>
-              <dd>Регистрационный номер оператора ПДн: [при наличии / требуется уточнить]</dd>
+              <dd>Сведения о регистрационном номере оператора ПДн отсутствуют в переданных реквизитах</dd>
+            </div>
+            <div>
+              <dt class="font-black text-slate-200">Налоговый статус</dt>
+              <dd>Плательщик налога на профессиональный доход. При оплате формируется чек самозанятого.</dd>
             </div>
           </dl>
         </div>
