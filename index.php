@@ -7,6 +7,104 @@ $mapUrl = 'https://yandex.ru/maps/-/CPToEY3p';
 $address = 'Тенистая ул., 29, микрорайон Западный, Домодедово';
 $hours = 'ежедневно 10:00-18:00';
 
+$popularCars = [
+    'Lada Granta',
+    'Lada Vesta',
+    'Lada Niva',
+    'Lada Largus',
+    'Lada Priora',
+    'Lada Kalina',
+    'ВАЗ 2107',
+    'ВАЗ 2114',
+    'ВАЗ 2110',
+    'Hyundai Solaris',
+    'Hyundai Creta',
+    'Hyundai Tucson',
+    'Hyundai Santa Fe',
+    'Kia Rio',
+    'Kia Ceed',
+    'Kia Sportage',
+    'Kia Sorento',
+    'Kia Cerato',
+    'Toyota Camry',
+    'Toyota Corolla',
+    'Toyota RAV4',
+    'Toyota Land Cruiser',
+    'Toyota Land Cruiser Prado',
+    'Volkswagen Polo',
+    'Volkswagen Tiguan',
+    'Volkswagen Passat',
+    'Volkswagen Touareg',
+    'Renault Logan',
+    'Renault Duster',
+    'Renault Sandero',
+    'Renault Kaptur',
+    'Renault Arkana',
+    'Renault Trafic',
+    'Skoda Octavia',
+    'Skoda Rapid',
+    'Skoda Kodiaq',
+    'Nissan Qashqai',
+    'Nissan X-Trail',
+    'Nissan Almera',
+    'Ford Focus',
+    'Ford Mondeo',
+    'Ford Kuga',
+    'Ford Transit',
+    'Chevrolet Niva',
+    'Chevrolet Cruze',
+    'Chevrolet Lacetti',
+    'Mitsubishi Outlander',
+    'Mitsubishi Pajero',
+    'Mitsubishi Lancer',
+    'Mazda 3',
+    'Mazda 6',
+    'Mazda CX-5',
+    'Mercedes-Benz C-Class',
+    'Mercedes-Benz E-Class',
+    'Mercedes-Benz Sprinter',
+    'Mercedes-Benz Vito',
+    'BMW 3 Series',
+    'BMW 5 Series',
+    'BMW X3',
+    'BMW X5',
+    'Audi A4',
+    'Audi A6',
+    'Audi Q5',
+    'Audi Q7',
+    'Peugeot 308',
+    'Peugeot 408',
+    'Peugeot 607',
+    'Citroen C4',
+    'Citroen Berlingo',
+    'Opel Astra',
+    'Opel Zafira',
+    'Honda Civic',
+    'Honda Accord',
+    'Honda CR-V',
+    'Geely Coolray',
+    'Geely Atlas',
+    'Geely Monjaro',
+    'Chery Tiggo 4',
+    'Chery Tiggo 7 Pro',
+    'Chery Tiggo 8 Pro',
+    'Haval Jolion',
+    'Haval F7',
+    'Haval Dargo',
+    'Changan CS35 Plus',
+    'Changan CS55 Plus',
+    'Changan Uni-K',
+    'Omoda C5',
+    'Exeed TXL',
+    'Exeed VX',
+    'Москвич 3',
+    'УАЗ Патриот',
+    'УАЗ Хантер',
+    'ГАЗ Газель',
+    'ГАЗ Соболь',
+    'ГАЗель Next',
+];
+
 $services = [
     [
         'id' => 'repair',
@@ -117,13 +215,18 @@ $jsonLd = [
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>VlasGas - автоэлектрика, диагностика и полировка авто в Домодедово</title>
   <meta name="description" content="VlasGas в Домодедово: автоэлектрика и ремонт после диагностики, диагностика авто от 1 000 ₽, полировка авто после оценки, выездная диагностика от 3 000 ₽. Рейтинг 4,9 на Яндекс.Картах.">
-  <link rel="preload" href="assets/fonts/inter-cyrillic-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/open-sans-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/images/workshop-hero.png" as="image">
   <link rel="stylesheet" href="assets/css/styles.css">
   <script type="application/ld+json"><?= json_encode($jsonLd, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES); ?></script>
 </head>
 <body class="font-sans">
   <a class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-3 focus:text-ink" href="#calculator">Перейти к расчету стоимости</a>
+  <datalist id="popular-cars">
+    <?php foreach ($popularCars as $carModel): ?>
+      <option value="<?= htmlspecialchars($carModel, ENT_QUOTES, 'UTF-8'); ?>"></option>
+    <?php endforeach; ?>
+  </datalist>
 
   <header class="border-b border-white/10 bg-ink">
     <div class="container-page flex min-h-[76px] items-center justify-between gap-4">
@@ -252,7 +355,7 @@ $jsonLd = [
                   <span class="h-2 w-2 rounded-full bg-signal"></span>
                   Старт
                 </div>
-                <div class="mt-2 text-3xl font-black text-white" data-price-output>после диагностики</div>
+                <div class="mt-2 whitespace-nowrap text-[1.35rem] font-black leading-none text-white sm:text-2xl" data-price-output>после диагностики</div>
                 <div class="mt-3 h-1.5 overflow-hidden rounded-full bg-white/10">
                   <div class="h-full w-2/3 rounded-full bg-copper-500"></div>
                 </div>
@@ -298,7 +401,7 @@ $jsonLd = [
 
             <div>
               <label class="field-label" for="car">Автомобиль</label>
-              <input class="field" id="car" name="car" type="text" placeholder="Например: Renault Trafic">
+              <input class="field" id="car" name="car" type="text" list="popular-cars" placeholder="Выберите или введите модель">
             </div>
 
             <div class="sm:col-span-2">
@@ -539,7 +642,7 @@ $jsonLd = [
 
                 <div>
                   <label class="field-label" for="final_car">Автомобиль</label>
-                  <input class="field" id="final_car" name="car" type="text" placeholder="Марка, модель, год">
+                  <input class="field" id="final_car" name="car" type="text" list="popular-cars" placeholder="Выберите или введите модель">
                 </div>
 
                 <div class="sm:col-span-2">

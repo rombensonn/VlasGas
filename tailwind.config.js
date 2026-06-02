@@ -23,7 +23,10 @@ module.exports = {
         blueprint: '#49A6D8'
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif']
+        sans: ['Open Sans', 'sans-serif']
+      },
+      fontWeight: {
+        black: '800'
       },
       boxShadow: {
         industrial: '0 28px 80px rgba(0, 0, 0, 0.32)',
