@@ -2,8 +2,8 @@
   const services = {
     repair: {
       label: 'Автоэлектрика и ремонт',
-      priceText: 'после диагностики',
-      note: 'Сначала ищем причину: свет, проводка, запуск, приборка или разряд аккумулятора.'
+      priceText: 'от 1 000 ₽',
+      note: 'Стартовая сумма относится к диагностике. Ремонт согласуется после поиска причины.'
     },
     diagnostics: {
       label: 'Диагностика авто',
@@ -36,6 +36,7 @@
   const priceOutput = document.querySelector('[data-price-output]');
   const serviceOutput = document.querySelector('[data-service-output]');
   const noteOutput = document.querySelector('[data-note-output]');
+  const carCatalog = window.VLASGAS_CAR_CATALOG || {};
 
   function updateEstimate(serviceKey) {
     if (!priceOutput || !serviceOutput || !noteOutput) {
@@ -74,12 +75,61 @@
       return 'Заполните услугу, проблему и телефон.';
     }
 
+    if (formData.get('personal_data_consent') !== 'yes' || formData.get('privacy_policy_consent') !== 'yes') {
+      return 'Подтвердите согласие на обработку персональных данных и политику обработки персональных данных.';
+    }
+
     const phoneDigits = String(formData.get('phone') || '').replace(/\D/g, '');
     if (phoneDigits.length < 10 || phoneDigits.length > 15) {
       return 'Укажите телефон в корректном формате.';
     }
 
     return '';
+  }
+
+  function setupCarSelectors() {
+    document.querySelectorAll('[data-estimate-form]').forEach((form) => {
+      const brandSelect = form.querySelector('[data-car-brand]');
+      const modelSelect = form.querySelector('[data-car-model]');
+      const combinedInput = form.querySelector('[data-car-combined]');
+
+      if (!brandSelect || !modelSelect || !combinedInput) {
+        return;
+      }
+
+      function updateCombinedValue() {
+        const brand = brandSelect.value.trim();
+        const model = modelSelect.value.trim();
+        combinedInput.value = [brand, model].filter(Boolean).join(' ');
+      }
+
+      function renderModels() {
+        const brand = brandSelect.value;
+        const models = carCatalog[brand] || [];
+
+        modelSelect.innerHTML = '';
+
+        const placeholder = document.createElement('option');
+        placeholder.value = '';
+        placeholder.textContent = brand ? 'Выберите модель' : 'Сначала выберите марку';
+        modelSelect.appendChild(placeholder);
+
+        models.forEach((model) => {
+          const option = document.createElement('option');
+          option.value = model;
+          option.textContent = model;
+          modelSelect.appendChild(option);
+        });
+
+        modelSelect.disabled = !brand;
+        updateCombinedValue();
+      }
+
+      brandSelect.addEventListener('change', renderModels);
+      modelSelect.addEventListener('change', updateCombinedValue);
+      form.addEventListener('reset', () => window.setTimeout(renderModels, 0));
+      renderModels();
+    });
   }
 
   function setupReveal() {
@@ -160,5 +210,6 @@
     });
   });
 
+  setupCarSelectors();
   setupReveal();
 })();

@@ -136,9 +136,17 @@ $serviceKey = post_value('service');
 $visitKey = post_value('visit_type');
 $problem = post_value('problem');
 $phoneRaw = post_value('phone');
+$carBrand = post_value('car_brand');
+$carModel = post_value('car_model');
 $car = post_value('car');
 $name = post_value('name');
 $comment = post_value('comment');
+$personalDataConsent = post_value('personal_data_consent');
+$privacyPolicyConsent = post_value('privacy_policy_consent');
+
+if ($car === '') {
+    $car = trim($carBrand . ' ' . $carModel);
+}
 
 if (!array_key_exists($serviceKey, $services)) {
     json_response(['ok' => false, 'error' => 'Выберите услугу из списка.'], 422);
@@ -150,6 +158,10 @@ if ($visitKey !== '' && !array_key_exists($visitKey, $visitTypes)) {
 
 if ($problem === '' || mb_strlen($problem) < 5) {
     json_response(['ok' => false, 'error' => 'Коротко опишите проблему с автомобилем.'], 422);
+}
+
+if ($personalDataConsent !== 'yes' || $privacyPolicyConsent !== 'yes') {
+    json_response(['ok' => false, 'error' => 'Подтвердите согласие на обработку персональных данных и политику обработки персональных данных.'], 422);
 }
 
 $digits = preg_replace('/\D+/', '', $phoneRaw) ?? '';
@@ -177,6 +189,7 @@ $message = implode("\n", array_filter([
     $car !== '' ? '<b>Авто:</b> ' . htmlspecialchars($car, ENT_QUOTES, 'UTF-8') : '',
     '<b>Проблема:</b> ' . htmlspecialchars($problem, ENT_QUOTES, 'UTF-8'),
     $comment !== '' ? '<b>Комментарий:</b> ' . htmlspecialchars($comment, ENT_QUOTES, 'UTF-8') : '',
+    '<b>Согласия:</b> получены',
 ]));
 
 if (!telegram_send($token, $chatId, $message)) {

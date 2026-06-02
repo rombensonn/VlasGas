@@ -7,102 +7,36 @@ $mapUrl = 'https://yandex.ru/maps/-/CPToEY3p';
 $address = 'Тенистая ул., 29, микрорайон Западный, Домодедово';
 $hours = 'ежедневно 10:00-18:00';
 
-$popularCars = [
-    'Lada Granta',
-    'Lada Vesta',
-    'Lada Niva',
-    'Lada Largus',
-    'Lada Priora',
-    'Lada Kalina',
-    'ВАЗ 2107',
-    'ВАЗ 2114',
-    'ВАЗ 2110',
-    'Hyundai Solaris',
-    'Hyundai Creta',
-    'Hyundai Tucson',
-    'Hyundai Santa Fe',
-    'Kia Rio',
-    'Kia Ceed',
-    'Kia Sportage',
-    'Kia Sorento',
-    'Kia Cerato',
-    'Toyota Camry',
-    'Toyota Corolla',
-    'Toyota RAV4',
-    'Toyota Land Cruiser',
-    'Toyota Land Cruiser Prado',
-    'Volkswagen Polo',
-    'Volkswagen Tiguan',
-    'Volkswagen Passat',
-    'Volkswagen Touareg',
-    'Renault Logan',
-    'Renault Duster',
-    'Renault Sandero',
-    'Renault Kaptur',
-    'Renault Arkana',
-    'Renault Trafic',
-    'Skoda Octavia',
-    'Skoda Rapid',
-    'Skoda Kodiaq',
-    'Nissan Qashqai',
-    'Nissan X-Trail',
-    'Nissan Almera',
-    'Ford Focus',
-    'Ford Mondeo',
-    'Ford Kuga',
-    'Ford Transit',
-    'Chevrolet Niva',
-    'Chevrolet Cruze',
-    'Chevrolet Lacetti',
-    'Mitsubishi Outlander',
-    'Mitsubishi Pajero',
-    'Mitsubishi Lancer',
-    'Mazda 3',
-    'Mazda 6',
-    'Mazda CX-5',
-    'Mercedes-Benz C-Class',
-    'Mercedes-Benz E-Class',
-    'Mercedes-Benz Sprinter',
-    'Mercedes-Benz Vito',
-    'BMW 3 Series',
-    'BMW 5 Series',
-    'BMW X3',
-    'BMW X5',
-    'Audi A4',
-    'Audi A6',
-    'Audi Q5',
-    'Audi Q7',
-    'Peugeot 308',
-    'Peugeot 408',
-    'Peugeot 607',
-    'Citroen C4',
-    'Citroen Berlingo',
-    'Opel Astra',
-    'Opel Zafira',
-    'Honda Civic',
-    'Honda Accord',
-    'Honda CR-V',
-    'Geely Coolray',
-    'Geely Atlas',
-    'Geely Monjaro',
-    'Chery Tiggo 4',
-    'Chery Tiggo 7 Pro',
-    'Chery Tiggo 8 Pro',
-    'Haval Jolion',
-    'Haval F7',
-    'Haval Dargo',
-    'Changan CS35 Plus',
-    'Changan CS55 Plus',
-    'Changan Uni-K',
-    'Omoda C5',
-    'Exeed TXL',
-    'Exeed VX',
-    'Москвич 3',
-    'УАЗ Патриот',
-    'УАЗ Хантер',
-    'ГАЗ Газель',
-    'ГАЗ Соболь',
-    'ГАЗель Next',
+$carCatalog = [
+    'Lada' => ['Granta', 'Vesta', 'Niva', 'Largus', 'Priora', 'Kalina'],
+    'ВАЗ' => ['2107', '2114', '2110'],
+    'Hyundai' => ['Solaris', 'Creta', 'Tucson', 'Santa Fe'],
+    'Kia' => ['Rio', 'Ceed', 'Sportage', 'Sorento', 'Cerato'],
+    'Toyota' => ['Camry', 'Corolla', 'RAV4', 'Land Cruiser', 'Land Cruiser Prado'],
+    'Volkswagen' => ['Polo', 'Tiguan', 'Passat', 'Touareg'],
+    'Renault' => ['Logan', 'Duster', 'Sandero', 'Kaptur', 'Arkana', 'Trafic'],
+    'Skoda' => ['Octavia', 'Rapid', 'Kodiaq'],
+    'Nissan' => ['Qashqai', 'X-Trail', 'Almera'],
+    'Ford' => ['Focus', 'Mondeo', 'Kuga', 'Transit'],
+    'Chevrolet' => ['Niva', 'Cruze', 'Lacetti'],
+    'Mitsubishi' => ['Outlander', 'Pajero', 'Lancer'],
+    'Mazda' => ['3', '6', 'CX-5'],
+    'Mercedes-Benz' => ['C-Class', 'E-Class', 'Sprinter', 'Vito'],
+    'BMW' => ['3 Series', '5 Series', 'X3', 'X5'],
+    'Audi' => ['A4', 'A6', 'Q5', 'Q7'],
+    'Peugeot' => ['308', '408', '607'],
+    'Citroen' => ['C4', 'Berlingo'],
+    'Opel' => ['Astra', 'Zafira'],
+    'Honda' => ['Civic', 'Accord', 'CR-V'],
+    'Geely' => ['Coolray', 'Atlas', 'Monjaro'],
+    'Chery' => ['Tiggo 4', 'Tiggo 7 Pro', 'Tiggo 8 Pro'],
+    'Haval' => ['Jolion', 'F7', 'Dargo'],
+    'Changan' => ['CS35 Plus', 'CS55 Plus', 'Uni-K'],
+    'Omoda' => ['C5'],
+    'Exeed' => ['TXL', 'VX'],
+    'Москвич' => ['3'],
+    'УАЗ' => ['Патриот', 'Хантер'],
+    'ГАЗ' => ['Газель', 'Соболь', 'ГАЗель Next'],
 ];
 
 $services = [
@@ -110,7 +44,7 @@ $services = [
         'id' => 'repair',
         'code' => 'ELEC',
         'title' => 'Автоэлектрика и ремонт',
-        'price' => 'после диагностики',
+        'price' => 'от 1 000 ₽',
         'when' => 'Не работает свет, проводка, приборка, запуск или есть разряд аккумулятора.',
         'includes' => 'Поиск причины, согласование стоимости и ремонт.',
     ],
@@ -222,11 +156,9 @@ $jsonLd = [
 </head>
 <body class="font-sans">
   <a class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-3 focus:text-ink" href="#calculator">Перейти к расчету стоимости</a>
-  <datalist id="popular-cars">
-    <?php foreach ($popularCars as $carModel): ?>
-      <option value="<?= htmlspecialchars($carModel, ENT_QUOTES, 'UTF-8'); ?>"></option>
-    <?php endforeach; ?>
-  </datalist>
+  <script>
+    window.VLASGAS_CAR_CATALOG = <?= json_encode($carCatalog, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES); ?>;
+  </script>
 
   <header class="border-b border-white/10 bg-ink">
     <div class="container-page flex min-h-[76px] items-center justify-between gap-4">
@@ -256,24 +188,24 @@ $jsonLd = [
     <section class="hero-photo border-b border-white/10">
       <div class="container-page py-8 sm:py-10 lg:min-h-[820px] lg:py-16">
         <div class="grid h-full gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
-          <div class="mx-auto flex max-w-[21.5rem] flex-col items-center text-center sm:max-w-3xl lg:mx-0" data-reveal>
-            <div class="flex max-w-[21.5rem] flex-wrap justify-center gap-2 sm:max-w-none">
+          <div class="flex max-w-[21.5rem] flex-col items-start text-left sm:max-w-2xl" data-reveal>
+            <div class="flex max-w-[21.5rem] flex-wrap justify-start gap-2 sm:max-w-none">
               <span class="status-pill">4,9 на Яндекс.Картах</span>
               <span class="status-pill">25 оценок</span>
               <span class="status-pill">20 отзывов</span>
             </div>
 
-            <h1 class="mt-7 max-w-[21.5rem] text-[2rem] font-black leading-[1.02] tracking-normal text-white sm:max-w-3xl sm:text-6xl sm:leading-[0.98] lg:text-7xl">
+            <h1 class="mt-7 max-w-[21.5rem] text-[1.9rem] font-black leading-[1.06] tracking-normal text-white sm:max-w-2xl sm:text-5xl sm:leading-[1.03] lg:text-[3.25rem] xl:text-[3.6rem]">
               <span class="block sm:inline">Автоэлектрика</span>
               <span class="block sm:inline"> и полировка:</span>
               <span class="block">сначала причина,</span>
               <span class="block">потом понятная работа</span>
             </h1>
-            <p class="mt-6 max-w-[21.5rem] text-base font-medium leading-7 text-slate-200 sm:max-w-2xl sm:text-xl sm:leading-8">
+            <p class="mt-6 max-w-[21.5rem] text-base font-medium leading-7 text-slate-200 sm:max-w-xl sm:text-lg sm:leading-8">
               VlasGas в Домодедово помогает с проводкой, светом, запуском, разрядом аккумулятора, диагностикой и полировкой кузова. Стоимость согласуется после понятной оценки задачи.
             </p>
 
-            <div class="mt-8 flex max-w-[21.5rem] flex-col gap-3 sm:max-w-none sm:flex-row sm:justify-center">
+            <div class="mt-8 flex max-w-[21.5rem] flex-col gap-3 sm:max-w-none sm:flex-row sm:justify-start">
               <a class="btn-primary" href="#calculator">Рассчитать стоимость</a>
               <a class="btn-secondary" href="<?= $phoneHref; ?>">Позвонить <?= $phoneDisplay; ?></a>
             </div>
@@ -281,7 +213,7 @@ $jsonLd = [
             <div class="mt-8 grid max-w-[21.5rem] gap-3 sm:max-w-2xl sm:grid-cols-3">
               <div class="service-chip bg-white/[0.08] text-white backdrop-blur">
                 <div class="text-xs font-black uppercase tracking-[0.16em] text-copper-400">Автоэлектрика</div>
-                <div class="mt-2 text-2xl font-black">после диагностики</div>
+                <div class="mt-2 text-2xl font-black">от 1 000 ₽</div>
               </div>
               <div class="service-chip bg-white/[0.08] text-white backdrop-blur">
                 <div class="text-xs font-black uppercase tracking-[0.16em] text-copper-400">Диагностика</div>
@@ -355,7 +287,7 @@ $jsonLd = [
                   <span class="h-2 w-2 rounded-full bg-signal"></span>
                   Старт
                 </div>
-                <div class="mt-2 whitespace-nowrap text-[1.35rem] font-black leading-none text-white sm:text-2xl" data-price-output>после диагностики</div>
+                <div class="mt-2 whitespace-nowrap text-[1.45rem] font-black leading-none text-white sm:text-2xl" data-price-output>от 1 000 ₽</div>
                 <div class="mt-3 h-1.5 overflow-hidden rounded-full bg-white/10">
                   <div class="h-full w-2/3 rounded-full bg-copper-500"></div>
                 </div>
@@ -371,7 +303,7 @@ $jsonLd = [
             <div class="sm:col-span-2">
               <label class="field-label" for="service">Услуга</label>
               <select class="field" id="service" name="service" data-service-select required>
-                <option value="repair">Автоэлектрика и ремонт - после диагностики</option>
+                <option value="repair">Автоэлектрика и ремонт - от 1 000 ₽</option>
                 <option value="diagnostics">Диагностика авто - от 1 000 ₽</option>
                 <option value="polishing">Полировка авто - после оценки</option>
                 <option value="lighting">Дополнительное освещение - от 4 000 ₽</option>
@@ -400,8 +332,21 @@ $jsonLd = [
             </div>
 
             <div>
-              <label class="field-label" for="car">Автомобиль</label>
-              <input class="field" id="car" name="car" type="text" list="popular-cars" placeholder="Выберите или введите модель">
+              <label class="field-label" for="car_brand">Марка</label>
+              <select class="field" id="car_brand" name="car_brand" data-car-brand>
+                <option value="">Выберите марку</option>
+                <?php foreach (array_keys($carCatalog) as $brand): ?>
+                  <option value="<?= htmlspecialchars($brand, ENT_QUOTES, 'UTF-8'); ?>"><?= htmlspecialchars($brand, ENT_QUOTES, 'UTF-8'); ?></option>
+                <?php endforeach; ?>
+              </select>
+            </div>
+
+            <div class="sm:col-span-2">
+              <label class="field-label" for="car_model">Модель</label>
+              <select class="field" id="car_model" name="car_model" data-car-model disabled>
+                <option value="">Сначала выберите марку</option>
+              </select>
+              <input type="hidden" name="car" data-car-combined>
             </div>
 
             <div class="sm:col-span-2">
@@ -412,6 +357,17 @@ $jsonLd = [
             <div class="sm:col-span-2">
               <label class="field-label" for="comment">Комментарий</label>
               <textarea class="field min-h-[92px] resize-y" id="comment" name="comment" placeholder="Удобное время, адрес для выезда или важные детали"></textarea>
+            </div>
+
+            <div class="sm:col-span-2 grid gap-3">
+              <label class="consent-check">
+                <input class="consent-input" type="checkbox" name="personal_data_consent" value="yes" required>
+                <span><a href="consent-personal-data.html" target="_blank" rel="noopener">Даю согласие на обработку персональных данных.</a></span>
+              </label>
+              <label class="consent-check">
+                <input class="consent-input" type="checkbox" name="privacy_policy_consent" value="yes" required>
+                <span><a href="personal-data-policy.html" target="_blank" rel="noopener">Согласен с политикой обработки персональных данных.</a></span>
+              </label>
             </div>
           </div>
 
@@ -612,7 +568,7 @@ $jsonLd = [
                 <div class="sm:col-span-2">
                   <label class="field-label" for="final_service">Что нужно сделать</label>
                   <select class="field" id="final_service" name="service" data-service-select required>
-                    <option value="repair">Автоэлектрика и ремонт - после диагностики</option>
+                    <option value="repair">Автоэлектрика и ремонт - от 1 000 ₽</option>
                     <option value="diagnostics">Диагностика авто - от 1 000 ₽</option>
                     <option value="polishing">Полировка авто - после оценки</option>
                     <option value="lighting">Дополнительное освещение - от 4 000 ₽</option>
@@ -641,8 +597,21 @@ $jsonLd = [
                 </div>
 
                 <div>
-                  <label class="field-label" for="final_car">Автомобиль</label>
-                  <input class="field" id="final_car" name="car" type="text" list="popular-cars" placeholder="Выберите или введите модель">
+                  <label class="field-label" for="final_car_brand">Марка</label>
+                  <select class="field" id="final_car_brand" name="car_brand" data-car-brand>
+                    <option value="">Выберите марку</option>
+                    <?php foreach (array_keys($carCatalog) as $brand): ?>
+                      <option value="<?= htmlspecialchars($brand, ENT_QUOTES, 'UTF-8'); ?>"><?= htmlspecialchars($brand, ENT_QUOTES, 'UTF-8'); ?></option>
+                    <?php endforeach; ?>
+                  </select>
+                </div>
+
+                <div class="sm:col-span-2">
+                  <label class="field-label" for="final_car_model">Модель</label>
+                  <select class="field" id="final_car_model" name="car_model" data-car-model disabled>
+                    <option value="">Сначала выберите марку</option>
+                  </select>
+                  <input type="hidden" name="car" data-car-combined>
                 </div>
 
                 <div class="sm:col-span-2">
@@ -653,6 +622,17 @@ $jsonLd = [
                 <div class="sm:col-span-2">
                   <label class="field-label" for="final_comment">Комментарий</label>
                   <textarea class="field min-h-[84px] resize-y" id="final_comment" name="comment" placeholder="Удобное время для звонка или адрес для выезда"></textarea>
+                </div>
+
+                <div class="sm:col-span-2 grid gap-3">
+                  <label class="consent-check">
+                    <input class="consent-input" type="checkbox" name="personal_data_consent" value="yes" required>
+                    <span><a href="consent-personal-data.html" target="_blank" rel="noopener">Даю согласие на обработку персональных данных.</a></span>
+                  </label>
+                  <label class="consent-check">
+                    <input class="consent-input" type="checkbox" name="privacy_policy_consent" value="yes" required>
+                    <span><a href="personal-data-policy.html" target="_blank" rel="noopener">Согласен с политикой обработки персональных данных.</a></span>
+                  </label>
                 </div>
               </div>
 
@@ -666,10 +646,73 @@ $jsonLd = [
     </section>
   </main>
 
-  <footer class="border-t border-white/10 bg-ink pb-24 pt-6 text-slate-400 md:pb-6">
-    <div class="container-page flex flex-col gap-3 text-sm sm:flex-row sm:items-center sm:justify-between">
-      <div class="font-bold">VlasGas, Домодедово</div>
-      <a class="font-black text-copper-400" href="<?= htmlspecialchars($mapUrl, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener">Карточка на Яндекс.Картах</a>
+  <footer class="border-t border-white/10 bg-ink pb-28 pt-12 text-slate-400 md:pb-10">
+    <div class="container-page">
+      <div class="grid gap-8 lg:grid-cols-[1.05fr_0.95fr_1fr]">
+        <div>
+          <div class="flex items-center gap-3">
+            <span class="flex h-11 w-11 items-center justify-center rounded-md border border-copper-400/50 bg-copper-500 text-sm font-black text-white">VG</span>
+            <div>
+              <div class="text-xl font-black text-white">VlasGas</div>
+              <div class="text-sm font-semibold">Автоэлектрика, диагностика, полировка</div>
+            </div>
+          </div>
+          <p class="mt-5 max-w-md text-sm leading-6">Информация на сайте носит справочный характер и не является публичной офертой. Итоговая стоимость работ согласуется после диагностики или оценки автомобиля.</p>
+          <a class="mt-5 inline-flex font-black text-copper-400" href="<?= htmlspecialchars($mapUrl, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener">Карточка на Яндекс.Картах</a>
+        </div>
+
+        <div>
+          <h2 class="text-sm font-black uppercase tracking-[0.16em] text-white">Контакты</h2>
+          <dl class="mt-5 grid gap-4 text-sm leading-6">
+            <div>
+              <dt class="font-black text-slate-200">Телефон</dt>
+              <dd><a class="text-copper-400" href="<?= $phoneHref; ?>"><?= $phoneDisplay; ?></a></dd>
+            </div>
+            <div>
+              <dt class="font-black text-slate-200">Адрес оказания услуг</dt>
+              <dd><?= htmlspecialchars($address, ENT_QUOTES, 'UTF-8'); ?></dd>
+            </div>
+            <div>
+              <dt class="font-black text-slate-200">График</dt>
+              <dd>ежедневно 10:00-18:00</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div>
+          <h2 class="text-sm font-black uppercase tracking-[0.16em] text-white">Юридическая информация</h2>
+          <dl class="mt-5 grid gap-3 text-sm leading-6">
+            <div>
+              <dt class="font-black text-slate-200">Владелец сайта / оператор ПДн</dt>
+              <dd>[Юридическое наименование / ИП / самозанятый]</dd>
+            </div>
+            <div>
+              <dt class="font-black text-slate-200">ИНН / ОГРН / ОГРНИП</dt>
+              <dd>[ИНН] / [ОГРН или ОГРНИП]</dd>
+            </div>
+            <div>
+              <dt class="font-black text-slate-200">Юридический адрес</dt>
+              <dd>[Юридический адрес владельца сайта]</dd>
+            </div>
+            <div>
+              <dt class="font-black text-slate-200">Email для обращений по ПДн</dt>
+              <dd>[email@example.ru]</dd>
+            </div>
+            <div>
+              <dt class="font-black text-slate-200">РКН</dt>
+              <dd>Регистрационный номер оператора ПДн: [при наличии / требуется уточнить]</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="mt-10 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm sm:flex-row sm:items-center sm:justify-between">
+        <div>© <?= date('Y'); ?> VlasGas. Все права защищены.</div>
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
+          <a class="font-black text-copper-400" href="consent-personal-data.html">Согласие на обработку персональных данных</a>
+          <a class="font-black text-copper-400" href="personal-data-policy.html">Политика обработки персональных данных</a>
+        </div>
+      </div>
     </div>
   </footer>
 

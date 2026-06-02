@@ -120,6 +120,18 @@
     @apply mb-2 block text-sm font-black text-white;
   }
 
+  .consent-check {
+    @apply flex cursor-pointer items-start gap-3 rounded-md border border-white/[0.12] bg-ink/45 p-3 text-sm font-bold leading-6 text-slate-300;
+  }
+
+  .consent-check a {
+    @apply text-slate-100 underline decoration-copper-400/60 underline-offset-4 hover:text-white;
+  }
+
+  .consent-input {
+    @apply mt-1 h-4 w-4 shrink-0 cursor-pointer accent-copper-500;
+  }
+
   .metal-card {
     @apply rounded-lg border border-white/[0.12] bg-white/[0.06] shadow-industrial backdrop-blur;
   }
